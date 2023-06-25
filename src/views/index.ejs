@@ -16,6 +16,7 @@
             crossorigin="anonymous"
         ></script>
 
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/ivao-css.css" />
 
     <title>IVAO-BG</title>
@@ -23,50 +24,7 @@
   <body>
     <div class="container">
     
-     <!--Date Name Logout-->
-      <div class="nav">
-        <div class="nav-links">
-          <ul>
-            <li><a id="run-date" class="text-secondary">Date |</a></li>
-            <li><a href="#">Fristname Lastname</a></li>
-            <li><a href="#">LOGOUT</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!--header nav-->
-      <nav class="navbar navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="img/logo.svg">
-          </a>
-
-          <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">ABOUT IVAO</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">PILOTS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">CONTROLLERS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">COMMUNITY</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">RESOURCES</a>
-            </li>
-            </li>
-            <li>
-                <a class="btn btn-outline-primary donate-btn" href="#">DONATE</a>
-            </li>
-          </ul>
-        </div>
-
-      </nav>
-
-      <hr>
+      <%- include( '../partials/navbar.ejs' ) %>
 
       <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">

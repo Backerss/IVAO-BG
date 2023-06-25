@@ -112,3 +112,8 @@ input:focus, textarea:focus, select:focus{
     box-shadow: none;
     border: 1px solid #0D2C99;
 }
+
+.icon-prepend
+{
+  color: gray;
+}

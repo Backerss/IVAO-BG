@@ -21,57 +21,14 @@
         <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/ivao-css.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>IVAO-BG</title>
   </head>
   <body>
     <div class="container">
     
-     <!--Date Name Logout-->
-      <div class="nav">
-        <div class="nav-links">
-          <ul>
-            <li><a id="run-date" class="text-secondary">Date |</a></li>
-            <li><a href="#">Fristname Lastname</a></li>
-            <li><a href="#">LOGOUT</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!--header nav-->
-      <nav class="navbar navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="img/logo.svg">
-          </a>
-
-          <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">ABOUT IVAO</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">PILOTS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">CONTROLLERS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">COMMUNITY</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">RESOURCES</a>
-            </li>
-            </li>
-            <li>
-                <a class="btn btn-outline-primary donate-btn" href="#">DONATE</a>
-            </li>
-          </ul>
-        </div>
-
-      </nav>
-
-      <hr>
-
+        <%- include( '../partials/navbar.ejs' ) %>
         <!--body-->
         <div class="row">
           <div class="col-lg-12">
@@ -87,11 +44,12 @@
                         <p class="card-text">
                           <form method="post" action="">
                             <div class="input-group mb-3">
-                              <span class="input-group-text" id="basic-addon1">VID</span>
+                              <span class="input-group-text" id="basic-addon1"><i class="icon-prepend fa fa-user"></i></span>
+                              
                               <input type="text" class="form-control" id="login-vid" placeholder="VID" aria-label="VID" aria-describedby="basic-addon1">
                             </div>
                             <div class="input-group mb-3">
-                              <span class="input-group-text" id="basic-addon1">P</span>
+                              <span class="input-group-text" id="basic-addon1"><i class="icon-prepend fa fa-lock"></i></span>
                               <input type="password" class="form-control" id="login-pass" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                             </div>
                           </form>

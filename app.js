@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
@@ -26,6 +27,11 @@ app.get('/', (req, res) => {
 
 app.use('/login', login);
 app.use('/profile', profile);
+app.use('/about', (req, res) => {
+
+  res.render('page/about');
+
+});
 
 
 app.listen(port, () => {

@@ -109,4 +109,33 @@ $(document).ready(function(){
 });
 
 
+//เรื่องของ cookie
+$(document).ready(function(){
+    
+    
+
+
+
+    $("#name_lastname").text('Hello ' + GetCookieVal("_vid"));
+});
+
+
+
+//function get data from cookie
+function GetCookieVal(offset) {
+    var endstr = document.cookie.indexOf(";", offset);
+    if(endstr == -1)
+    {
+        endstr = document.cookie.length;
+    }
+
+    //delete cookie name
+    var cookie = document.cookie.substring(offset, endstr);
+    var cookie_name = cookie.substring(0, cookie.indexOf("="));
+    var cookie_value = cookie.substring(cookie.indexOf("=") + 1);
+
+
+    return unescape(cookie_value);
+}
+
 runDate();
