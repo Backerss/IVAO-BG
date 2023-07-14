@@ -46,7 +46,8 @@ login.post('/login_check', (req, res) => {
                     if (response) {
                         
                         res.cookie('_vid', vid);
-                        res.cookie('_data', result[0]);
+                        res.cookie('_data', JSON.stringify(result[0]));
+
                         res.send('success');
                         
                     } else {

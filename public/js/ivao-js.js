@@ -87,11 +87,18 @@ $(document).ready(function(){
                 success: function(data){
                     if(data == "success")
                     {
+                        //if Swal is success when click ok to reload page
                         Swal.fire({
                             icon: 'success',
                             title: 'Login Success!',
-                            text: 'Welcome to IVAO!',
+                            showConfirmButton: true,
+                            timer: 1500
                         });
+
+
+                        //reload page
+                        location.reload();
+                        
                     }
                     else
                     {
@@ -112,12 +119,40 @@ $(document).ready(function(){
 //เรื่องของ cookie
 $(document).ready(function(){
     
+
+    //url decode from cookie _data
+    var data = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)_data\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+     //chang data to json
+    var json = JSON.parse(data);
+
+    if(GetCookieVal("_vid") == "")
+    {
+        $("#name_lastname").text('Hello Guest');
+    }else
+        $("#name_lastname").text(json['bg_vid']+ ' ' + json['bg_fristname'] + ' ' + json['bg_lastname']);
+
+
+    //chang src of img #profile-vid_id
+    $("#profile-vid_id").attr("src", "https://status.ivao.aero/" + json['bg_ivaoid'] + ".png");
     
-
-
-
-    $("#name_lastname").text('Hello ' + GetCookieVal("_vid"));
 });
+
+
+$(document).ready(function(){
+    $("#login-out").click(function(){
+        
+        console.log(document.cookie);
+        
+        //delete cookie
+        document.cookie = "_vid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "_data=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        //reload page
+        location.reload();
+
+    });
+});
+
 
 
 
