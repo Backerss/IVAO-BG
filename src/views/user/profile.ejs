@@ -98,7 +98,12 @@
                         <img id="pilot_rating" src="https://www.ivao.aero/data/images/ratings/pilot/12.gif" alt="Pilot" srcset="">
                     </div>
                     <div class="col">
-                        <img id="atc_rating" src="<%= bg_img %>" alt="ATC" srcset="">
+                        <% if (bg_img) {
+                            console.log("bg_img: " + bg_img);
+                        } else {
+                            console.log("bg_img: " + "NOT");
+                        } %>
+                        <img id="atc_rating" src= "<%= bg_img %>" alt="ATC" srcset="">
                     </div>
                 </div>
             </div>

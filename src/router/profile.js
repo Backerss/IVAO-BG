@@ -19,47 +19,52 @@ profile.get('/', (req, res) => {
     }
     else
     {
-        //get data from cookie
         const data = JSON.parse(req.cookies._data);
 
-        var imgink;
-        var imgink2;
-
-        connection.query('SELECT * FROM bg_atcrating WHERE bg_level = ?', [data.bg_atc_rating], (err, result) => {
-                
-            if (err) throw err;
-            
-            if(result.length > 0)
-            {
-
-                imgink = result[0].bg_img;
-            }
-              
-        });
-
-
-        connection.query('SELECT * FROM bg_pilotrating WHERE bg_level = ?', [data.bg_pilot_rating], (err, result) => {
-                    
-                if (err) throw err;
-                
-                if(result.length > 0)
-                {
-    
-                    imgink2 = result[0].bg_img;
-                    
-                }
-                
-        });
-
         res.render('user/profile', {
-            bg_img: imgink,
-            bg_img2: imgink2,
+            bg_img: GetATCIMG(data.bg_atc_rating),
+            bg_img2: GetPILOTIMG(data.bg_pilot_rating),
         });
-
 
     }
 
 });
+
+
+function GetATCIMG(level)
+{
+
+
+    var img = connection.query('SELECT * FROM bg_atcrating WHERE bg_level = ?', [level], (err, result) => {
+                
+        if (err) throw err;
+        
+        if(result.length > 0)
+        {
+            return result[0].bg_img;
+            
+        }
+          
+    });
+    return img;
+}
+
+
+function GetPILOTIMG(level)
+{
+    connection.query('SELECT * FROM bg_pilotrating WHERE bg_level = ?', [level], (err, result) => {
+                
+        if (err) throw err;
+        
+        if(result.length > 0)
+        {
+            return result[0].bg_img;
+        }
+          
+    });
+}
+
+
 
 
 

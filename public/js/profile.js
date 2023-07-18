@@ -8,10 +8,5 @@ $(document).ready(function(){
 
     $("#bg_name").text(json['bg_fristname'] + ' ' + json['bg_lastname']);
     $("#bg_vid").text(json['bg_vid']);
-
-
-
-
-    //set src of img 
     
 });
